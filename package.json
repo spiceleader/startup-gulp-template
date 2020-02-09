@@ -37,7 +37,6 @@
     "gulp-ttf2woff2": "^3.0.0",
     "gulp-webp": "^4.0.1",
     "gulp-zip": "^5.0.1",
-    "husky": "^4.2.1",
     "imagemin-webp": "^5.1.0",
     "stylelint": "^13.1.0",
     "stylelint-config-standard": "^20.0.0"
@@ -46,10 +45,5 @@
     "@babel/polyfill": "^7.8.3",
     "picturefill": "^3.0.3",
     "svg4everybody": "^2.1.9"
-  },
-  // "husky": {
-  //   "hooks": {
-  //     "pre-push": "npm test"
-  //   }
-  // }
+  }
 }
