@@ -1,7 +1,7 @@
 {
   "name": "startup-gulp-template",
   "version": "1.0.0",
-  "description": "Lightwieght startup Gulp with SASS template for basic project",
+  "description": "Lightweight startup Gulp with SASS template for basic project",
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
