@@ -4,10 +4,25 @@
   "description": "Lightweight startup Gulp with SASS template for basic project",
   "main": "gulpfile.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "gulp",
+    "build": "cross-env NODE_ENV=production gulp build",
+    "deploy": "npm run build && gh-pages -d build",
+    "dist": "npm run build && gulp zip",
+    "lintspaces": "gulp lintspaces",
+    "stylelint": "stylelint \"source/sass/**/*.{scss,sass}\"",
+    "eslint": "eslint \"source/js/**/*.js\"",
+    "test": "npm run lintspaces && npm run stylelint && npm run eslint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/spiceleader/startup-gulp-template.git"
   },
   "author": "Rostyslav Miniukov <miniukovrostyslav@gmail.com> (https://github.com/spiceleader)",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/spiceleader/startup-gulp-template/issues"
+  },
+  "homepage": "https://github.com/spiceleader/startup-gulp-template#readme",
   "devDependencies": {
     "@babel/core": "^7.8.4",
     "@babel/preset-env": "^7.8.4",
@@ -37,7 +52,8 @@
     "gulp-ttf2woff2": "^3.0.0",
     "gulp-webp": "^4.0.1",
     "gulp-zip": "^5.0.1",
-    "imagemin-webp": "^5.1.0",
+    "husky": "^4.2.1",
+    "imagemin-jpegoptim": "^6.0.0",
     "stylelint": "^13.1.0",
     "stylelint-config-standard": "^20.0.0"
   },
@@ -46,5 +62,16 @@
     "normalize.css": "^8.0.1",
     "picturefill": "^3.0.3",
     "svg4everybody": "^2.1.9"
-  }
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "npm test"
+    }
+  },
+  "browserslist": [
+    "last 2 versions",
+    "Firefox ESR",
+    "not dead",
+    "not OperaMini all"
+  ]
 }
