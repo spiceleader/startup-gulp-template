@@ -15,14 +15,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/spiceleader/startup-gulp-template.git"
+    "url": "git+ssh://git@github.com/embyth/startup-gulp-template.git"
   },
-  "author": "Rostyslav Miniukov <miniukovrostyslav@gmail.com> (https://github.com/spiceleader)",
+  "author": "Rostyslav Miniukov <miniukovrostyslav@gmail.com> (https://github.com/embyth)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/spiceleader/startup-gulp-template/issues"
+    "url": "https://github.com/embyth/startup-gulp-template/issues"
   },
-  "homepage": "https://github.com/spiceleader/startup-gulp-template#readme",
+  "homepage": "https://github.com/embyth/startup-gulp-template#readme",
   "devDependencies": {
     "@babel/core": "^7.8.4",
     "@babel/preset-env": "^7.8.4",
