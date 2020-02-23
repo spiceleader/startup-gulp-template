@@ -1,6 +1,6 @@
 {
   "name": "startup-gulp-template",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Lightweight startup Gulp with SASS template for basic project",
   "main": "gulpfile.js",
   "scripts": {
@@ -38,6 +38,7 @@
     "gulp-csso": "^4.0.1",
     "gulp-htmlmin": "^5.0.1",
     "gulp-if": "^3.0.0",
+    "gulp-ignore": "^3.0.0",
     "gulp-imagemin": "^7.1.0",
     "gulp-lintspaces": "^1.0.1",
     "gulp-newer": "^1.4.0",
