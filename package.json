@@ -9,7 +9,7 @@
     "deploy": "npm run build && gh-pages -d build",
     "dist": "npm run build && gulp zip",
     "lintspaces": "gulp lintspaces",
-    "stylelint": "stylelint \"source/sass/**/*.{scss,sass}\"",
+    "stylelint": "stylelint \"source/sass/**/*.{scss,sass}\" --syntax scss",
     "eslint": "eslint \"source/js/**/*.js\"",
     "test": "npm run lintspaces && npm run stylelint && npm run eslint"
   },
@@ -71,6 +71,7 @@
   "browserslist": [
     "last 2 versions",
     "Firefox ESR",
+    "IE 11",
     "not dead",
     "not OperaMini all"
   ]
