@@ -11,3 +11,4 @@ layouts
 build
 dist
 node_modules
+.history
