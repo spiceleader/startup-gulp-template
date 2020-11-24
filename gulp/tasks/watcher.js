@@ -1,13 +1,19 @@
-'use strict';
+import {paths} from '../paths.js';
+import {fonts} from './fonts.js';
+import {convertfonts} from './convertfonts.js';
+import {markup} from './markup.js';
+import {styles} from './styles.js';
+import {scripts} from './scripts.js';
+import {images} from './images.js';
+import {webp} from './webp.js';
+import {icons} from './icons.js';
+import browserSync from 'browser-sync';
+import pkg from 'gulp';
 
-const { paths: { source } } = require('../paths');
-const { series, watch } = require('gulp');
-const browserSync = require('browser-sync').get('Local Server');
-const dir = require('require-dir')('.');
+const {source} = paths;
+const {watch, series} = pkg;
 
-const { fonts, convertfonts, markup, styles, scripts, images, webp, icons } = dir;
-
-const watcher = () => {
+export const watcher = () => {
   watch(`${source.root}*.html`)
     .on('all', series(markup, browserSync.reload));
   watch(`${source.fonts}**/*.ttf`)
@@ -28,5 +34,3 @@ const watcher = () => {
   ])
     .on('all', series(images, browserSync.reload));
 };
-
-module.exports = watcher;

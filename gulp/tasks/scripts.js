@@ -1,16 +1,16 @@
-'use strict';
+import {paths} from '../paths.js';
+import pkg from 'gulp';
+import gulpIf from 'gulp-if';
+import concat from 'gulp-concat';
+import rename from 'gulp-rename';
+import babel from 'gulp-babel';
+import uglify from 'gulp-uglify';
 
-const { paths: { source, destination } } = require('../paths');
-const { src, dest } = require('gulp');
-const gulpIf = require('gulp-if');
-const concat = require('gulp-concat');
-const rename = require('gulp-rename');
-const babel = require('gulp-babel');
-const uglify = require('gulp-uglify');
-
+const {source, destination} = paths;
+const {src, dest} = pkg;
 const isDev = !process.env.NODE_ENV;
 
-const scripts = () =>
+export const scripts = () =>
   src([
     `${source.scripts}libs/**/*.js`,
     `${source.scripts}utils/**/*.js`,
@@ -22,5 +22,3 @@ const scripts = () =>
     .pipe(uglify())
     .pipe(rename({ suffix: '.min' }))
     .pipe(gulpIf(isDev, dest(destination.scripts, { sourcemaps: true }), dest(destination.scripts)));
-
-module.exports = scripts;

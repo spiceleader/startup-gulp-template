@@ -1,11 +1,12 @@
-'use strict';
+import {paths} from '../paths.js';
+import pkg from 'gulp';
+import changed from 'gulp-changed';
+import htmlmin from 'gulp-htmlmin';
 
-const { paths: { source, destination } } = require('../paths');
-const { src, dest } = require('gulp');
-const changed = require('gulp-changed');
-const htmlmin = require('gulp-htmlmin');
+const {source, destination} = paths;
+const {src, dest} = pkg;
 
-const markup = () => {
+export const markup = () => {
   const htmlminOptions = {
     collapseInlineTagWhitespace: true,
     collapseWhitespace: true,
@@ -17,5 +18,3 @@ const markup = () => {
     .pipe(htmlmin(htmlminOptions))
     .pipe(dest(destination.root));
 };
-
-module.exports = markup;

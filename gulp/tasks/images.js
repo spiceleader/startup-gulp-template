@@ -1,13 +1,15 @@
-'use strict';
+import {paths} from '../paths.js';
+import {settings} from '../settings.js';
+import pkg from 'gulp';
+import changed from 'gulp-changed';
+import imagemin from 'gulp-imagemin';
+import imageminJpegoptim from 'imagemin-jpegoptim';
 
-const { paths: { source, destination } } = require('../paths');
-const { images: { quality } } = require('../settings');
-const { src, dest } = require('gulp');
-const changed = require('gulp-changed');
-const imagemin = require('gulp-imagemin');
-const imageminJpegoptim = require('imagemin-jpegoptim');
+const {source, destination} = paths;
+const {images: {quality}} = settings;
+const {src, dest} = pkg;
 
-const images = () => {
+export const images = () => {
   const svgoPlugins = [
     { removeViewBox: false },
     { removeTitle: true },
@@ -30,5 +32,3 @@ const images = () => {
     .pipe(imagemin(imageminPlugins))
     .pipe(dest(destination.images.all));
 };
-
-module.exports = images;

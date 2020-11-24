@@ -1,8 +1,9 @@
-'use strict';
+import {paths} from '../paths.js';
+import pkg from 'gulp';
+import gzip from 'gulp-zip';
 
-const { paths: { destination, dist } } = require('../paths');
-const { src, dest } = require('gulp');
-const gzip = require('gulp-zip');
+const {destination, dist} = paths;
+const {src, dest} = pkg;
 
 const leadingZero = number => number < 10 ? `0${number}` : number;
 
@@ -18,7 +19,7 @@ const getDateTime = () => {
   return `${year}-${month}-${day}-${hours}${minutes}${seconds}`;
 };
 
-const zip = () => {
+export const zip = () => {
   let dateTime = getDateTime();
   let fileName = `dist-${dateTime}.zip`;
 
@@ -26,5 +27,3 @@ const zip = () => {
     .pipe(gzip(fileName))
     .pipe(dest(dist));
 };
-
-module.exports = zip;

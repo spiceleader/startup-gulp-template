@@ -1,14 +1,15 @@
-'use strict';
+import {paths} from '../paths.js';
+import {settings} from '../settings.js';
+import pkg from 'gulp';
+import rename from 'gulp-rename';
+import imagemin from 'gulp-imagemin';
+import svgstore from 'gulp-svgstore';
 
-const { paths: { source, destination } } = require('../paths');
-const { icons: { sprite } } = require('../settings');
-const { src, dest } = require('gulp');
-const rename = require('gulp-rename');
-const imagemin = require('gulp-imagemin');
-const svgstore = require('gulp-svgstore');
+const {source, destination} = paths;
+const {icons: {sprite}} = settings;
+const {src, dest} = pkg;
 
-// Сборка SVG спрайта
-const icons = done => {
+export const icons = (done) => {
   if (!sprite) return done();
 
   const svgoPlugins = [
@@ -27,5 +28,3 @@ const icons = done => {
     .pipe(rename('sprite.svg'))
     .pipe(dest(destination.images.all));
 };
-
-module.exports = icons;
