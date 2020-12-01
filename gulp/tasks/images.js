@@ -1,4 +1,5 @@
 import {paths} from '../paths.js';
+import fs from 'fs';
 import pkg from 'gulp';
 import changed from 'gulp-changed';
 import imagemin from 'gulp-imagemin';
@@ -25,6 +26,7 @@ export const images = (done) => {
 
   src([
     `${source.images.all}**/*.{jpeg,jpg,png,svg}`,
+    `!${source.images.all}sprite.svg`,
     `!${source.images.icons}**/*.{jpeg,jpg,png,svg}`
   ])
     .pipe(changed(destination.images.all))
@@ -34,6 +36,12 @@ export const images = (done) => {
   src(`${source.images.content}**/*.webp`)
     .pipe(changed(destination.images.content))
     .pipe(dest(destination.images.content))
+
+  if (fs.existsSync(`${source.images.all}sprite.svg`)) {
+    src(`${source.images.all}sprite.svg`)
+      .pipe(changed(destination.images.all))
+      .pipe(dest(destination.images.all))
+  }
 
   done();
 };

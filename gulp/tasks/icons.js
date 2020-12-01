@@ -4,7 +4,7 @@ import rename from 'gulp-rename';
 import imagemin from 'gulp-imagemin';
 import svgstore from 'gulp-svgstore';
 
-const {source, destination} = paths;
+const {source} = paths;
 const {src, dest} = pkg;
 
 export const icons = (done) => {
@@ -22,7 +22,7 @@ export const icons = (done) => {
     .pipe(rename({ prefix: 'icon-' }))
     .pipe(svgstore({ inlineSvg: true }))
     .pipe(rename('sprite.svg'))
-    .pipe(dest(destination.images.all));
+    .pipe(dest(source.images.all));
 
   done();
 };
