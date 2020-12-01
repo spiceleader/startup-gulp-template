@@ -1,15 +1,14 @@
 import {paths} from '../paths.js';
-import {settings} from '../settings.js';
 import pkg from 'gulp';
 import changed from 'gulp-changed';
 import imagemin from 'gulp-imagemin';
 import imageminJpegoptim from 'imagemin-jpegoptim';
 
 const {source, destination} = paths;
-const {images: {quality}} = settings;
+const quality = 80;
 const {src, dest} = pkg;
 
-export const images = () => {
+export const images = (done) => {
   const svgoPlugins = [
     { removeViewBox: false },
     { removeTitle: true },
@@ -24,11 +23,17 @@ export const images = () => {
     })
   ];
 
-  return src([
+  src([
     `${source.images.all}**/*.{jpeg,jpg,png,svg}`,
     `!${source.images.icons}**/*.{jpeg,jpg,png,svg}`
   ])
     .pipe(changed(destination.images.all))
     .pipe(imagemin(imageminPlugins))
     .pipe(dest(destination.images.all));
+
+  src(`${source.images.content}**/*.webp`)
+    .pipe(changed(destination.images.content))
+    .pipe(dest(destination.images.content))
+
+  done();
 };

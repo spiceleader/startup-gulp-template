@@ -5,7 +5,7 @@ import gzip from 'gulp-zip';
 const {destination, dist} = paths;
 const {src, dest} = pkg;
 
-const leadingZero = number => number < 10 ? `0${number}` : number;
+const leadingZero = (number) => number < 10 ? `0${number}` : number;
 
 const getDateTime = () => {
   const now = new Date();

@@ -1,6 +1,6 @@
 {
   "name": "startup-gulp-template",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Lightweight startup Gulp with SASS template for web project",
   "private": true,
   "type": "module",
@@ -9,6 +9,9 @@
     "build": "cross-env NODE_ENV=production gulp build",
     "deploy": "npm run build && gh-pages -d build",
     "dist": "npm run build && gulp zip",
+    "convertfonts": "gulp convertfonts",
+    "webp": "gulp webp",
+    "sprite": "gulp sprite",
     "lintspaces": "gulp lintspaces",
     "stylelint": "stylelint \"source/sass/**/*.{scss,sass}\" --syntax scss",
     "eslint": "eslint \"source/js/**/*.js\"",
