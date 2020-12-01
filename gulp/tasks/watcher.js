@@ -5,7 +5,7 @@ import {styles} from './styles.js';
 import {scripts} from './scripts.js';
 import {images} from './images.js';
 import {icons} from './icons.js';
-import browserSync from 'browser-sync';
+import {browserSync} from './server.js';
 import pkg from 'gulp';
 
 const {source} = paths;

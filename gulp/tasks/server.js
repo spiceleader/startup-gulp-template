@@ -1,5 +1,7 @@
 import {paths} from '../paths.js';
-import browserSync from 'browser-sync';
+import {create as bsCreate} from 'browser-sync';
+
+export const browserSync = bsCreate(`Local Server`);
 
 export const server = (done) => {
   browserSync.init({

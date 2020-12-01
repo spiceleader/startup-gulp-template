@@ -3,7 +3,7 @@ import pkg from 'gulp';
 import ttf2woff from 'gulp-ttf2woff';
 import ttf2woff2 from 'gulp-ttf2woff2';
 
-const {source, destination} = paths;
+const {source} = paths;
 const {src, dest} = pkg;
 
 export const convertfonts = (done) => {
