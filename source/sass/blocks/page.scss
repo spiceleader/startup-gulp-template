@@ -2,8 +2,8 @@
   margin: 0;
   padding: 0;
   min-width: $mobile-width;
-  font-size: font-size(base);
-  line-height: font-lh(base);
+  font-size: fz(base);
+  line-height: lh(base);
   color: $font-color-base;
   background-color: $bg-color-body;
 }

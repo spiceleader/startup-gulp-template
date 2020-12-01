@@ -15,19 +15,19 @@
   }
 }
 
-@function font-size($size) {
+@function fz($size) {
   @if map-has-key($font-sizes, $size) {
     @return map-get($font-sizes, $size);
   }
 }
 
-@function font-family($family) {
+@function ff($family) {
   @if map-has-key($font-stack, $family) {
     @return map-get($font-stack, $family);
   }
 }
 
-@function font-lh($line-height) {
+@function lh($line-height) {
   @if map-has-key($font-line-height, $line-height) {
     @return map-get($font-line-height, $line-height);
   }
